@@ -1,0 +1,295 @@
+<html>
+<head>
+    <title>Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .power-button {
+            transition: background-color 0.3s;
+        }
+        .power-button:hover {
+            background-color: #d1d5db; /* Tailwind's gray-300 */
+        }
+        .power-button.on {
+            background-color: #0db4b9;
+        }
+        .icon-button i {
+            transition: color 0.3s;
+        }
+        .icon-button:hover i {
+            color: #1f2937; /* Tailwind's gray-800 */
+        }
+        .edit-button {
+            border: 1px solid #89c4f4;
+            background-color: white;
+        }
+        .delete-button {
+            border: 1px solid #ec644b;
+            background-color: white;
+        }
+        .dark-theme {
+            background-color: #1a202c;
+            color: #a0aec0;
+        }
+        .dark-theme .bg-white {
+            background-color: #2d3748;
+        }
+        .dark-theme .bg-gray-200 {
+            background-color: #4a5568;
+        }
+        .dark-theme .text-gray-500 {
+            color: #a0aec0;
+        }
+        .dark-theme .icon-button:hover i {
+            color: #cbd5e0; /* Tailwind's gray-400 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <div class="flex justify-between items-center mb-4">
+            <button class="text-xl font-semibold bg-gray-200 px-4 py-2 rounded icon-button">
+                <i class="fas fa-cog"></i>
+            </button>
+            <div class="flex space-x-2">
+                <button class="bg-gray-200 px-2 py-1 rounded icon-button" onclick="toggleTheme(this)">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="bg-gray-200 px-2 py-1 rounded icon-button">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-lg">Temperature <span class="bg-gray-200 px-2 py-1 rounded">10°C</span></div>
+            <div class="text-lg">Humidity <span class="bg-gray-200 px-2 py-1 rounded">90%</span></div>
+        </div>
+        <div class="space-y-4" id="switch-container">
+            <div class="flex items-center space-x-4 bg-[#f7f9f7] p-4 rounded-lg relative">
+                <div class="flex flex-col items-center">
+                    <button class="bg-gray-200 p-4 rounded-lg power-button" onclick="toggleSwitch(this)">
+                        <i class="fas fa-power-off text-2xl"></i>
+                    </button>
+                    <div class="text-gray-500 status">OFF</div>
+                </div>
+                <div>
+                    <div class="text-lg font-semibold switch-name">Array One Switch</div>
+                    <div class="text-sm text-gray-500 switch-description">Water</div>
+                </div>
+                <button class="absolute top-2 right-2 bg-white px-2 py-1 rounded icon-button edit-button" onclick="toggleEditMode(this)">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="absolute top-2 right-12 bg-white px-2 py-1 rounded icon-button delete-button" onclick="deleteSwitch(this)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+            <div class="flex items-center space-x-4 bg-[#f7f9f7] p-4 rounded-lg relative">
+                <div class="flex flex-col items-center">
+                    <button class="bg-gray-200 p-4 rounded-lg power-button" onclick="toggleSwitch(this)">
+                        <i class="fas fa-power-off text-2xl"></i>
+                    </button>
+                    <div class="text-gray-500 status">OFF</div>
+                </div>
+                <div>
+                    <div class="text-lg font-semibold switch-name">Array Two Switch</div>
+                    <div class="text-sm text-gray-500 switch-description">Description</div>
+                </div>
+                <button class="absolute top-2 right-2 bg-white px-2 py-1 rounded icon-button edit-button" onclick="toggleEditMode(this)">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="absolute top-2 right-12 bg-white px-2 py-1 rounded icon-button delete-button" onclick="deleteSwitch(this)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+            <div class="flex items-center space-x-4 bg-[#f7f9f7] p-4 rounded-lg relative">
+                <div class="flex flex-col items-center">
+                    <button class="bg-gray-200 p-4 rounded-lg power-button" onclick="toggleSwitch(this)">
+                        <i class="fas fa-power-off text-2xl"></i>
+                    </button>
+                    <div class="text-gray-500 status">OFF</div>
+                </div>
+                <div>
+                    <div class="text-lg font-semibold switch-name">Array Three Switch</div>
+                    <div class="text-sm text-gray-500 switch-description">Description</div>
+                </div>
+                <button class="absolute top-2 right-2 bg-white px-2 py-1 rounded icon-button edit-button" onclick="toggleEditMode(this)">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="absolute top-2 right-12 bg-white px-2 py-1 rounded icon-button delete-button" onclick="deleteSwitch(this)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+            <div class="flex items-center space-x-4 bg-[#f7f9f7] p-4 rounded-lg relative">
+                <div class="flex flex-col items-center">
+                    <button class="bg-gray-200 p-4 rounded-lg power-button" onclick="toggleSwitch(this)">
+                        <i class="fas fa-power-off text-2xl"></i>
+                    </button>
+                    <div class="text-gray-500 status">OFF</div>
+                </div>
+                <div>
+                    <div class="text-lg font-semibold switch-name">Array Four Switch</div>
+                    <div class="text-sm text-gray-500 switch-description">Description</div>
+                </div>
+                <button class="absolute top-2 right-2 bg-white px-2 py-1 rounded icon-button edit-button" onclick="toggleEditMode(this)">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="absolute top-2 right-12 bg-white px-2 py-1 rounded icon-button delete-button" onclick="deleteSwitch(this)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-gray-200 px-4 py-2 rounded icon-button" onclick="addSwitch()">
+                <i class="fas fa-plus"></i> Add
+            </button>
+        </div>
+        <div class="mt-6">
+            <div class="text-lg font-semibold mb-2">Temperature and Humidity</div>
+            <div class="bg-[#f7f9f7] p-4 rounded-lg">
+                <canvas id="chart" class="w-full h-48"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('chart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'],
+                datasets: [{
+                    label: 'Temperature',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    data: [10, 12, 15, 14, 16],
+                    fill: false,
+                }, {
+                    label: 'Humidity',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    data: [90, 85, 88, 87, 89],
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Time'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: '°C / %'
+                        }
+                    }
+                }
+            }
+        });
+
+        function toggleSwitch(button) {
+            const statusDiv = button.nextElementSibling;
+            if (statusDiv.textContent === "OFF") {
+                statusDiv.textContent = "ON";
+                button.classList.add("on");
+            } else {
+                statusDiv.textContent = "OFF";
+                button.classList.remove("on");
+            }
+        }
+
+        function toggleTheme(button) {
+            const icon = button.querySelector('i');
+            const body = document.body;
+            if (icon.classList.contains('fa-sun')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                body.classList.add('dark-theme');
+            } else {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                body.classList.remove('dark-theme');
+            }
+        }
+
+        function addSwitch() {
+            const switchContainer = document.getElementById('switch-container');
+            const newSwitch = document.createElement('div');
+            newSwitch.className = 'flex items-center space-x-4 bg-[#f7f9f7] p-4 rounded-lg relative';
+            newSwitch.innerHTML = `
+                <div class="flex flex-col items-center">
+                    <button class="bg-gray-200 p-4 rounded-lg power-button" onclick="toggleSwitch(this)">
+                        <i class="fas fa-power-off text-2xl"></i>
+                    </button>
+                    <div class="text-gray-500 status">OFF</div>
+                </div>
+                <div>
+                    <div class="text-lg font-semibold switch-name">New Array Switch</div>
+                    <div class="text-sm text-gray-500 switch-description">Description</div>
+                </div>
+                <button class="absolute top-2 right-2 bg-white px-2 py-1 rounded icon-button edit-button" onclick="toggleEditMode(this)">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="absolute top-2 right-12 bg-white px-2 py-1 rounded icon-button delete-button" onclick="deleteSwitch(this)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            `;
+            switchContainer.appendChild(newSwitch);
+        }
+
+        function deleteSwitch(button) {
+            const switchElement = button.closest('.flex.items-center');
+            switchElement.remove();
+        }
+
+        function toggleEditMode(button) {
+            const switchElement = button.closest('.flex.items-center');
+            const nameElement = switchElement.querySelector('.switch-name');
+            const descriptionElement = switchElement.querySelector('.switch-description');
+            const icon = button.querySelector('i');
+
+            if (icon.classList.contains('fa-pencil-alt')) {
+                // Enter edit mode
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.value = nameElement.textContent;
+                nameInput.className = 'text-lg font-semibold switch-name-input';
+
+                const descriptionInput = document.createElement('input');
+                descriptionInput.type = 'text';
+                descriptionInput.value = descriptionElement.textContent;
+                descriptionInput.className = 'text-sm text-gray-500 switch-description-input';
+
+                nameElement.replaceWith(nameInput);
+                descriptionElement.replaceWith(descriptionInput);
+
+                icon.classList.remove('fa-pencil-alt');
+                icon.classList.add('fa-check');
+            } else {
+                // Save and exit edit mode
+                const nameInput = switchElement.querySelector('.switch-name-input');
+                const descriptionInput = switchElement.querySelector('.switch-description-input');
+
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'text-lg font-semibold switch-name';
+                nameDiv.textContent = nameInput.value;
+
+                const descriptionDiv = document.createElement('div');
+                descriptionDiv.className = 'text-sm text-gray-500 switch-description';
+                descriptionDiv.textContent = descriptionInput.value;
+
+                nameInput.replaceWith(nameDiv);
+                descriptionInput.replaceWith(descriptionDiv);
+
+                icon.classList.remove('fa-check');
+                icon.classList.add('fa-pencil-alt');
+            }
+        }
+    </script>
+</body>
+</html>
