@@ -1,0 +1,16 @@
+before you need to Look at Appimage DOCUMET
+
+cd ~/Software/pycharm-professional-2024.1/pycharm-2024.1/bin
+
+nano ~/.local/share/applications/pycharm.desktop
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=PyCharm Professional
+Exec=/home/chamath_adithya/Software/pycharm-professional-2024.1/pycharm-2024.1/bin/pycharm.sh
+Terminal=false
+Icon=/home/chamath_adithya/Software/pycharm-professional-2024.1/pycharm-2024.1/bin/pycharm.png
+Categories=Development;IDE;
+
+chmod +x ~/.local/share/applications/pycharm.desktop
