@@ -1,0 +1,3 @@
+source ~/.bashrc
+emulator -list-avds
+emulator -avd Pixel_2
