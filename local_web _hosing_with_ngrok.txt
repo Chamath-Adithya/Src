@@ -1,0 +1,4 @@
+serve -s build/web -l 41665 	//41665 is port and this command must enter on web derectory
+ngrok http --url=vervet-excited-distinctly.ngrok-free.app 41665 //start ngrok
+
+
