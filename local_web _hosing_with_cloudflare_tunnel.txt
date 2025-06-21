@@ -1,0 +1,5 @@
+serve -s build/web -l 41665 	//41665 is port and this command must enter on web derectory
+cloudflared tunnel --url http://localhost:41665 	//start tunnel you can see a url like https://test-web-app.trycloudflare.com
+
+
+
